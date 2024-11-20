@@ -1,0 +1,32 @@
+:root {
+  /* Accent color palette */
+  --clr-accent-name: hsl(246, 80%, 60%);
+  --clr-accent-work: hsl(195, 74%, 62%);
+  --clr-accent-play: hsl(195, 74%, 62%);
+  --clr-accent-study: hsl(348, 100%, 68%);
+  --clr-accent-exercise: hsl(145, 58%, 55%);
+  --clr-accent-social: hsl(264, 64%, 52%);
+  --clr-accent-selfcare: hsl(43, 84%, 65%);
+
+  /* Neutral color palette */
+  --clr-neutral-100: hsl(236, 100%, 87%);
+  --clr-neutral-200: hsl(235, 45%, 61%);
+  --clr-neutral-300: hsl(235, 46%, 20%);
+  --clr-neutral-400: hsl(226, 43%, 10%);
+
+  /* Typography */
+  --font-family-base: "Rubik", sans-serif;
+
+  --font-size-sm: 0.9375rem;
+  --font-size-base: 1.125rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+}
+
+body {
+  background-color: var(--clr-neutral-400);
+}
