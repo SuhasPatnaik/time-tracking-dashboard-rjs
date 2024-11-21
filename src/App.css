@@ -87,6 +87,7 @@ button:active {
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 0.5rem;
+  align-items: center;
 }
 
 .title {
@@ -97,5 +98,16 @@ button:active {
 
 .info-card > img {
   justify-self: end;
-  align-self: center;
+}
+
+.current-total-time {
+  font-size: var(--font-size-xl);
+  color: white;
+  font-weight: var(--font-weight-light);
+}
+
+.previous-total-time {
+  font-size: var(--font-size-sm);
+  color: var(--clr-neutral-100);
+  justify-self: end;
 }
