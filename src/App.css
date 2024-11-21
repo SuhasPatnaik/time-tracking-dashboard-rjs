@@ -1,3 +1,9 @@
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .name-card {
   display: grid;
   grid-template-rows: auto auto;
@@ -35,9 +41,61 @@
   color: white;
 }
 
-.interval-options {
+.timeframe-options {
   display: flex;
   justify-content: space-around;
   padding: 1rem;
   color: var(--clr-neutral-200);
+}
+
+.timeframe-options > button {
+  all: unset;
+  cursor: pointer;
+}
+
+button:hover,
+button:active {
+  color: white;
+}
+
+.activity-time-card {
+  display: grid;
+  background-color: var(--clr-accent-work);
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.timecard-top {
+  position: relative;
+  height: 2.5rem;
+}
+
+.activity-img-rep {
+  position: absolute;
+  top: -0.8rem;
+  right: 0.8rem;
+}
+
+.info-card {
+  background-color: var(--clr-neutral-300);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  box-shadow: -1px 0 0 0 var(--clr-neutral-300),
+    1px 0 0 0 var(--clr-neutral-300); /* Hack to fill tiny gaps - fractional pixel rounding issue */
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0.5rem;
+}
+
+.title {
+  font-size: inherit;
+  color: white;
+  font-weight: inherit;
+}
+
+.info-card > img {
+  justify-self: end;
+  align-self: center;
 }

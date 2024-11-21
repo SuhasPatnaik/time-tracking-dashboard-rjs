@@ -93,7 +93,7 @@ select {
 :root {
   /* Primary color palette */
   --clr-accent-name: hsl(246, 80%, 60%);
-  --clr-accent-work: hsl(195, 74%, 62%);
+  --clr-accent-work: hsl(15, 100%, 70%);
   --clr-accent-play: hsl(195, 74%, 62%);
   --clr-accent-study: hsl(348, 100%, 68%);
   --clr-accent-exercise: hsl(145, 58%, 55%);
