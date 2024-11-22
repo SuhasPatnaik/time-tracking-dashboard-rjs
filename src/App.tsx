@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import data from "./assets/data/data.json";
 
 import profilepic from "./assets/images/image-jeremy.png";
 import elipsisIcon from "./assets/images/icon-ellipsis.svg";
@@ -11,7 +12,28 @@ import exerciseIcon from "./assets/images/icon-exercise.svg";
 import socialIcon from "./assets/images/icon-social.svg";
 import selfCareIcon from "./assets/images/icon-self-care.svg";
 
-const activityStyles = {
+// Define types for the data structure
+interface Timeframe {
+  current: number;
+  previous: number;
+}
+
+interface Activity {
+  title: string;
+  timeframes: {
+    daily: Timeframe;
+    weekly: Timeframe;
+    monthly: Timeframe;
+  };
+}
+
+// Define types for the activity styles
+interface ActivityStyle {
+  bgColor: string;
+  imgSrc: string;
+}
+
+const activityStyles: Record<string, ActivityStyle> = {
   Work: {
     bgColor: "var(--clr-accent-work)",
     imgSrc: workIcon,
@@ -32,16 +54,21 @@ const activityStyles = {
     bgColor: "var(--clr-accent-social)",
     imgSrc: socialIcon,
   },
-  SelfCare: {
+  "Self Care": {
     bgColor: "var(--clr-accent-selfcare)",
     imgSrc: selfCareIcon,
   },
 };
 
 export default function App() {
-  const [timeframe, setTimeframe] = useState("daily");
+  const [timeframe, setTimeframe] = useState<"daily" | "weekly" | "monthly">(
+    "daily"
+  );
 
-  const handleTimeframeChange = (selectedTimeframe) => {
+  const handleTimeframeChange = (
+    selectedTimeframe: "daily" | "weekly" | "monthly"
+  ) => {
+    console.log(`state value changed to: ${selectedTimeframe}`);
     setTimeframe(selectedTimeframe);
   };
 
@@ -59,50 +86,63 @@ export default function App() {
             <h1>Jeremy Robson</h1>
           </div>
           <div className="timeframe-options">
-            <button
-              onClick={() => {
-                handleTimeframeChange("daily");
-              }}
-            >
+            <button onClick={() => handleTimeframeChange("daily")}>
               Daily
             </button>
-            <button
-              onClick={() => {
-                handleTimeframeChange("weekly");
-              }}
-            >
+            <button onClick={() => handleTimeframeChange("weekly")}>
               Weekly
             </button>
-            <button
-              onClick={() => {
-                handleTimeframeChange("monthly");
-              }}
-            >
+            <button onClick={() => handleTimeframeChange("monthly")}>
               Monthly
             </button>
           </div>
         </div>
-        <ActivityTimeCard />
+        {data.map((activity: Activity) => {
+          console.log(`activity::: ${activity.title}`);
+          const { title, timeframes } = activity;
+
+          return (
+            <ActivityTimeCard
+              key={title}
+              title={title}
+              timeframe={timeframes[timeframe]}
+              backgroundColor={activityStyles[title]?.bgColor}
+              imgSource={activityStyles[title]?.imgSrc}
+            />
+          );
+        })}
       </div>
     </>
   );
 }
 
-function ActivityTimeCard() {
+interface ActivityTimeCardProps {
+  title: string;
+  timeframe: Timeframe;
+  backgroundColor?: string;
+  imgSource?: string;
+}
+
+function ActivityTimeCard({
+  title,
+  timeframe,
+  backgroundColor,
+  imgSource,
+}: ActivityTimeCardProps) {
   return (
-    <div className="activity-time-card">
+    <div className="activity-time-card" style={{ backgroundColor }}>
       <div className="timecard-top">
         <img
-          src={activityStyles.Work.imgSrc}
-          alt=""
+          src={imgSource}
+          alt={`${title} icon`}
           className="activity-img-rep"
         />
       </div>
       <div className="info-card">
-        <h2 className="title">Work</h2>
-        <img src={elipsisIcon} alt="" />
-        <p className="current-total-time">32hrs</p>
-        <p className="previous-total-time">Last Week - 36hrs</p>
+        <h2 className="title">{title}</h2>
+        <img src={elipsisIcon} alt="Options menu icon" />
+        <p className="current-total-time">{`${timeframe.current}hrs`}</p>
+        <p className="previous-total-time">{`Last Week - ${timeframe.previous}hrs`}</p>
       </div>
     </div>
   );
