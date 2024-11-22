@@ -12,7 +12,6 @@ import exerciseIcon from "./assets/images/icon-exercise.svg";
 import socialIcon from "./assets/images/icon-social.svg";
 import selfCareIcon from "./assets/images/icon-self-care.svg";
 
-// Define types for the data structure
 interface Timeframe {
   current: number;
   previous: number;
@@ -27,7 +26,6 @@ interface Activity {
   };
 }
 
-// Define types for the activity styles
 interface ActivityStyle {
   bgColor: string;
   imgSrc: string;
@@ -86,7 +84,7 @@ export default function App() {
             <h1>Jeremy Robson</h1>
           </div>
           <div className="timeframe-options">
-            <button onClick={() => handleTimeframeChange("daily")}>
+            <button autoFocus onClick={() => handleTimeframeChange("daily")}>
               Daily
             </button>
             <button onClick={() => handleTimeframeChange("weekly")}>

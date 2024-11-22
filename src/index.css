@@ -118,14 +118,3 @@ select {
   --font-weight-regular: 400;
   --font-weight-medium: 500;
 }
-
-body {
-  font-family: var(--font-family-base);
-  background-color: var(--clr-neutral-400);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  min-height: 100vh;
-  display: grid;
-  justify-content: center;
-  margin: 5rem 0rem;
-}

@@ -1,3 +1,14 @@
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--clr-neutral-400);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  margin: 5rem 0rem;
+}
+
 .main-section {
   display: flex;
   flex-direction: column;
@@ -55,7 +66,8 @@
 }
 
 button:hover,
-button:active {
+/* button:active, */
+button:focus {
   color: white;
 }
 
@@ -111,4 +123,50 @@ button:active {
   font-size: var(--font-size-sm);
   color: var(--clr-neutral-100);
   justify-self: end;
+}
+
+@media (min-width: 768px) {
+  .main-section {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 1048px) {
+  body {
+    place-content: center;
+    margin: unset;
+  }
+
+  .main-section {
+    width: unset;
+    display: grid;
+    margin-inline: 5rem;
+    max-width: 70vw;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .user-card {
+    grid-template-columns: 1fr;
+  }
+
+  .name-card {
+    grid-row: 1 / -1;
+  }
+
+  .info-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 0.5rem;
+    align-items: center;
+  }
+
+  .previous-total-time {
+    grid-column: 1;
+  }
+
+  .timeframe-options {
+    flex-direction: column;
+  }
 }
