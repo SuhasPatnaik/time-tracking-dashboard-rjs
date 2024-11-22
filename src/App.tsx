@@ -1,33 +1,40 @@
 import "./App.css";
+import { useState } from "react";
 
 import profilepic from "./assets/images/image-jeremy.png";
 import elipsisIcon from "./assets/images/icon-ellipsis.svg";
-import { useState } from "react";
+
+import workIcon from "./assets/images/icon-work.svg";
+import playIcon from "./assets/images/icon-play.svg";
+import studyIcon from "./assets/images/icon-study.svg";
+import exerciseIcon from "./assets/images/icon-exercise.svg";
+import socialIcon from "./assets/images/icon-social.svg";
+import selfCareIcon from "./assets/images/icon-self-care.svg";
 
 const activityStyles = {
   Work: {
     bgColor: "var(--clr-accent-work)",
-    imgSrc: "./assets/images/icon-work.svg",
+    imgSrc: workIcon,
   },
   Play: {
     bgColor: "var(--clr-accent-play)",
-    imgSrc: "./assets/images/icon-play.svg",
+    imgSrc: playIcon,
   },
   Study: {
     bgColor: "var(--clr-accent-study)",
-    imgSrc: "./assets/images/icon-study.svg",
+    imgSrc: studyIcon,
   },
   Exercise: {
     bgColor: "var(--clr-accent-exercise)",
-    imgSrc: "./assets/images/icon-exercise.svg",
+    imgSrc: exerciseIcon,
   },
   Social: {
     bgColor: "var(--clr-accent-social)",
-    imgSrc: "./assets/images/icon-social.svg",
+    imgSrc: socialIcon,
   },
   SelfCare: {
     bgColor: "var(--clr-accent-selfcare)",
-    imgSrc: "./assets/images/icon-self-care.svg",
+    imgSrc: selfCareIcon,
   },
 };
 
@@ -85,7 +92,11 @@ function ActivityTimeCard() {
   return (
     <div className="activity-time-card">
       <div className="timecard-top">
-        <img src={workIcon} alt="" className="activity-img-rep" />
+        <img
+          src={activityStyles.Work.imgSrc}
+          alt=""
+          className="activity-img-rep"
+        />
       </div>
       <div className="info-card">
         <h2 className="title">Work</h2>
